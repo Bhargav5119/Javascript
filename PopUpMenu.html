@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            height: 100vh;
+            background: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .container{
+            width: 80%;
+            margin: 0 auto;
+            color: #fff;
+            text-align: center;
+        }
+        .container h1{
+            margin-bottom: 10px;
+            font-weight: 300;
+        }
+        .container h1 span{
+            font-weight: bold;
+        }
+        .container p{
+            margin-bottom: 20px;
+        }
+        .btn, button{
+            padding: 10px 20px;
+            font-size: 15px;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+        .model{
+            height: 100vh;
+            position: absolute;
+            top: 0;
+            left: 0;
+            color: #fff;
+            z-index: 1;
+            text-align: center;
+            display: none;
+        }
+        .model .wrapper1{
+            width: 80%;
+            margin: 50px auto;
+            position: relative;
+            /* display: none; */
+            animation: slide ease 0.8s;
+        }
+        @keyframes slide {
+            from{
+                top: -30%;
+            }
+            to{
+                top: 0;
+            }
+        }
+        .btn{
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+        .model .wrapper1 h2{
+            margin-bottom: 20px;
+        }
+        .model .wrapper1 p{
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+       
+            <h1><span>Let's</span> Create A Model</h1>
+            <p>Click Button Below</p>
+            <div class="button">
+                <button id="btn">TEST POPUP</button>
+            </div>
+       
+    </div>
+
+    <div class="model">
+        <div class="wrapper1">
+            <h2>Hello World!!!</h2>
+            <button class="btn">Close</button>
+            <hr>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laboriosam ea officiis reprehenderit illum id tempore voluptates laborum quas obcaecati natus. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Exercitationem odit illum, a ratione unde repellat architecto omnis ullam ex, veritatis aliquam nam placeat aut atque!</p>
+        </div>
+    </div>
+    <script>
+        const btnclose = document.querySelector('.btn');
+        const popup = document.querySelector('.button');
+        const model = document.querySelector('.model')
+
+
+        btnclose.addEventListener('click', () => {
+            model.style.display = 'none'
+            console.log('click');
+        })
+        popup.addEventListener('click', ()=>{
+            model.style.display = 'block'
+        })
+        model.addEventListener('click', () => {
+            model.style.display = 'none'
+        })
+
+    </script>
+</body>
+</html>

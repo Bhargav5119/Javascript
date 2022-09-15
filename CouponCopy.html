@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vowel Check</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            width: 40%;
+            /* display: flex; */
+            /* flex-direction: column; */
+            text-align: center;
+            /* margin: 200px 0 ; */
+            padding: 30px 20px;
+            background: rgb(233, 226, 226);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.681);
+            border-radius: 20px;
+        }
+
+        button {
+            width: 30%;
+            padding: 10px;
+            font-size: 20px;
+            border: none;
+            outline: none;
+            border-radius: 5px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.681);
+            cursor: pointer;
+        }
+
+        .input-text {
+            margin-left: 20px;
+            width: 60%;
+            padding: 10px;
+            font-size: 20px;
+            border: none;
+            outline: none;
+            border-radius: 5px;
+            background: transparent;
+            /* background-color: #fff; */
+            /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.681); */
+            border-bottom: 5px solid rgb(211, 158, 72);
+        }
+
+        .form {
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <form class="form">
+            <input type="text" class="input-text" value="Combo500">
+            <button class="btn">Copy</button>
+        </form>
+    </div>
+    <script>
+        const btn = document.querySelector('.btn');
+        const coupon = document.querySelector('.input-text');
+
+
+        const copyText = (e) => {
+            e.preventDefault();
+
+            // console.log('copy')
+            coupon.select();
+            coupon.setSelectionRange(0, 999999);
+            document.execCommand('copy');
+
+            // alert('fee')
+
+            btn.textContent = "copied!!"
+
+            setTimeout(() => {
+                btn.textContent = "copy"
+            }, 3000)
+        }
+        // console.log(coupon);
+        btn.addEventListener('click', copyText)
+
+
+    </script>
+</body>
+
+</html>

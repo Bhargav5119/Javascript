@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.09);
+        }
+
+        .container {
+            /* padding: 20px; */
+            width: 30%;
+        }
+
+        .container h2 {
+            text-align: center;
+            background: #000;
+            color: #fff;
+            padding: 10px 20px;
+            margin-bottom: 10px;
+        }
+
+        .container p {
+            /* margin-top: 20px; */
+            background-color: aquamarine;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .container h4 {
+            margin-top: 10px;
+            font-size: 20px;
+            font-weight: 500;
+            /* padding: 20px; */
+        }
+
+        .container input {
+            width: 100%;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Weigth Converter</h2>
+        <p>Type a value of the field to convert Weigth</p>
+        <form action="">
+            <h4>Weigth in Pounds</h4>
+            <br>
+            <input type="text" placeholder="Pounds" class="Pounds">
+            <br>
+            <h4>Weigth in Kilograms</h4>
+            <br>
+            <input type="text" placeholder="Kilograms" class="Kilograms">
+            <br>
+            <h4>Weigth in Grams</h4>
+            <br>
+            <input type="text" placeholder="Grams" class="Grams">
+        </form>
+    </div>
+    <script>
+        let Pounds = document.querySelector('.Pounds');
+        let Kilograms = document.querySelector('.Kilograms')
+        let Grams = document.querySelector('.Grams')
+        let form = document.querySelector('form');
+
+            console.log(form);
+        form.addEventListener('input', (e) => {
+            if (e.target.classList.contains('Pounds')) {
+                let x = e.target.value;
+                // console.log(x);
+                Kilograms.value = x / 2.2046;
+                Grams.value = x / 0.0022046;
+            } 
+            if (e.target.classList.contains('Kilograms')) {
+                // console.log(Kilograms);
+                let x = e.target.value;
+                Pounds.value = x * 2.2046;
+                Grams.value = x * 1000;
+            } 
+            if (e.target.classList.contains('Grams')) {
+                // console.log(Grams);
+                let x = e.target.value;
+                Pounds.value = x * 0.0022046;
+                Kilograms.value = x / 1000;
+            }
+        })
+
+
+    </script>
+</body>
+
+</html>

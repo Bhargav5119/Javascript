@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Input Charactor Counter</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .container {
+        width: 40%;
+        /* display: flex; */
+        /* flex-direction: column; */
+        text-align: center;
+        /* margin: 200px 0 ; */
+        padding: 30px 20px;
+        background: rgb(233, 226, 226);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.681);
+        border-radius: 20px;
+      }
+      h1 {
+        margin-bottom: 10px;
+      }
+      span {
+        font-size: 40px;
+        margin-bottom: 20px;
+      }
+      .buttons {
+        /* display: flex; */
+        margin-top: 20px;
+        /* justify-content: space-between; */
+        /* text-align: center; */
+        /* align-items: center; */
+        /* margin: 0 auto; */
+      }
+      input {
+        width: 70%;
+        padding: 10px;
+        font-size: 20px;
+        border: none;
+        outline: none;
+        border-radius: 5px;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.681);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Charactor Count</h1>
+      <span id="number">0</span>
+      <hr />
+      <div class="buttons">
+        <input id="generate" class="generate" placeholder="Enter text Here"></input>
+      </div>
+    </div>
+    <script>
+      let number = document.getElementById("number");
+      let input = document.querySelector("#generate");
+     
+      input.addEventListener('keyup', ()=>{
+        number.innerHTML = input.value.length;
+      })
+      // console.log(randomNumber);
+    </script>
+  </body>
+</html>

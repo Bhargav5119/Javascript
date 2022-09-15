@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Palidrom Check</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            width: 40%;
+            /* display: flex; */
+            /* flex-direction: column; */
+            text-align: center;
+            /* margin: 200px 0 ; */
+            padding: 30px 20px;
+            background: rgb(233, 226, 226);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.681);
+            border-radius: 20px;
+        }
+
+        button {
+            width: 30%;
+            padding: 10px;
+            font-size: 20px;
+            border: none;
+            outline: none;
+            border-radius: 5px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.681);
+        }
+
+        .input-text {
+            margin-left: 20px;
+            width: 60%;
+            padding: 10px;
+            font-size: 20px;
+            border: none;
+            outline: none;
+            border-radius: 5px;
+            background: transparent;
+            /* background-color: #fff; */
+            /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.681); */
+            border-bottom: 5px solid rgb(211, 158, 72);
+        }
+
+        .result {
+            margin-top: 50px;
+            font-size: 30px;
+        }
+
+        .form {
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="form">
+            <input type="text" class="input-text"> <button class="btn">Check</button>
+        </div>
+        <h2 class="result">Your Answer</h2>
+
+    </div>
+    <script>
+        const btn = document.querySelector('.btn');
+        const result = document.querySelector('.result')
+
+        btn.addEventListener('click', () => {
+        
+            const string1 = document.querySelector('.input-text').value;
+            const string = string1.toLowerCase();
+            const arrayValues = string.split('');
+            const reversearrayValues = arrayValues.reverse();
+            const reverseString = reversearrayValues.join('');
+            console.log(string);
+            console.log(reverseString);
+
+            if(string == reverseString){
+                result.innerHTML = `${string1}  is Palindrome`
+            }else{
+                result.innerHTML = `${string1}  is Not Palindrome`
+            }
+        })
+
+
+    </script>
+</body>
+
+</html>

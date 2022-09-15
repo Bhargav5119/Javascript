@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tip Calculator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            height: 100vh;
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            width: 30%;
+            margin: 0 auto;
+            text-align: center;
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.09);
+        }
+
+        .container h2 {
+            font-size: 25px;
+            background-color: rgb(216, 138, 43);
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        form,
+        form>* {
+            /* border-bottom: 3px solid rgb(216, 138, 43); */
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        form div {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            /* margin-bottom: 5px; */
+            margin-bottom: 20px;
+            /* margin-bottom: 10px; */
+        }
+
+        form span {
+            font-size: 20px;
+        }
+
+        input,
+        select {
+            padding: 7px;
+            font-size: 20px;
+            width: 15rem;
+            text-align: right;
+        }
+
+        .btn {
+            margin: 10px 0;
+            background-color: rgb(216, 138, 43);
+            border: none;
+            width: 100%;
+            padding: 10px;
+            font-size: 20px;
+        }
+
+        .error {
+            color: red;
+            display: none;
+        }
+
+        .tip,
+        .total {
+            margin: 15px auto;
+            border: none;
+            width: 75%;
+            padding: 10px;
+            font-size: 20px;
+            /* border: 2px solid #000; */
+            background: rgba(0, 0, 0, 0.09);
+        }
+
+        .total {
+            color: red;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Tip Calculator</h2>
+        <form action="">
+            <div>
+                <span>Bill:</span>
+                <input type="text" class="bill" placeholder="$">
+            </div>
+            <div>
+                <span>Rate Service:</span>
+                <select name="" id="" class="rate">
+                    <option value="0" disabled selected>--select Service--</option>
+                    <option value="0.15">15% - Exellent </option>
+                    <option value="0.10">10% - Very Good </option>
+                    <option value="0.05">5% - Good </option>
+                </select>
+            </div>
+            <button class="btn">Calculate </button>
+            <p class="error"> Please Enter bill and service</p>
+        </form>
+        <div class="result">
+            <p class="tip">Tip Amount: $0</p>
+            <p class="total">Total Amount: $0</p>
+        </div>
+    </div>
+    <script>
+        const tip = document.querySelector('.tip')
+        const total = document.querySelector('.total')
+        const btn = document.querySelector('.btn')
+        const error = document.querySelector('.error')
+
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const rate = document.querySelector('.rate').value;
+            const bill = document.querySelector('.bill').value;
+
+            if (rate === '' || bill === "") {
+                error.style.display = "block"
+            } else if (isNaN(bill)) {
+                error.innerHTML = `Please Enter a Number `
+                error.style.display = "block"
+            } else {
+                let tipamount = rate * bill;
+                tip.innerHTML = `Tip Amount:  $${tipamount}  `;
+
+                let totalbill = Number(bill) + tipamount;
+                total.innerHTML = `Total Amount: $${totalbill} `
+            }
+
+        })
+
+    </script>
+</body>
+
+</html>

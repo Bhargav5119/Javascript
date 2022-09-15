@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;padding: 0;box-sizing: border-box;
+        }
+        body{
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container{
+            width: 40%;
+            /* display: flex; */
+            /* flex-direction: column; */
+            text-align: center;
+            /* margin: 200px 0 ; */
+            padding: 30px 20px;
+            background: rgb(233, 226, 226);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.681);
+            border-radius: 20px;
+        }
+        h1{
+            margin-bottom: 10px;
+        }
+        span{
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+        .buttons{
+            display: flex;
+            margin-top: 20px;
+            justify-content: space-between;
+        }
+        button{
+            width: 30%;
+            padding: 10px;
+            font-size: 20px;
+            border: none;
+            outline: none;
+            border-radius: 5px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.681);
+        }
+        button:first-child{
+            background-color: red;
+        }
+        button:last-child{
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Counter App</h1>
+        <span id="number">0</span>
+        <hr>
+        <div class="buttons">
+            <button id="substract" class="substract" >Substract</button>
+            <button id="reset" class="reset"> Reset</button>
+            <button id="add" class="add">Add</button>
+        </div>
+    </div>
+    <script>
+        let number = document.getElementById('number');
+        // let substract = document.getElementById('substract')
+        // let reset = document.getElementById('reset')
+        // let add = document.getElementById('add')
+
+        // console.log(number, substract , reset , add)
+
+        // substract.addEventListener('click', () =>{
+        //     number.innerHTML--;
+        // })
+        // add.addEventListener('click', () =>{
+        //     number.innerHTML++;
+        // })
+        // reset.addEventListener('click', () =>{
+        //     number.innerHTML = 0;
+        // })
+        
+
+        let buttons = document.querySelector('.buttons');
+        // console.log(buttons);
+        buttons.addEventListener('click', (e)=>{
+            if(e.target.classList.contains('add')){
+                number.innerHTML++;
+                setColor()
+            }
+            if(e.target.classList.contains('reset')){
+                number.innerHTML = 0;
+                setColor()
+            }
+            if(e.target.classList.contains('substract')){
+                number.innerHTML--;
+                setColor()
+            }
+        })
+
+        function setColor(){
+            if(number.innerHTML > 0){
+                number.style.color = 'green';
+            } else if(number.innerHTML == 0){
+                number.style.color = '#000';
+            }else{
+                number.style.color = 'red';
+            }
+        }
+
+    </script>
+</body>
+</html>
